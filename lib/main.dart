@@ -248,12 +248,22 @@ class MyHomePage extends StatefulWidget {
 
   final String title;
 
+
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+
+  Map<String, double> cornsPadding = {
+    "수민": 0.0,
+    "수연": 0.0,
+    "언지": 0.0,
+    "은수": 0.0,
+    "지훈": 0.0,
+    "현아": 0.0,
+  };
 
   // 게이지 바의 단계는 0에서 6까지 설정
   double _getProgress() {
@@ -351,111 +361,147 @@ class _MyHomePageState extends State<MyHomePage> {
                   fontFamily: "PaperlogySemiBold",
                 ),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+              Stack (
                 children: [
-                  InkWell(
-                    onTap: () {
-                      print("수민옥수수를 클릭했습니다.");
-                      Navigator.of(context).push(
-                          MaterialPageRoute(builder: (_) => MemberPage(name: "수민"))
-                      );
-                      // ScaffoldMessenger.of(context).showSnackBar(
-                      //     SnackBar(
-                      //       content: Text("수민옥수수를 클릭했습니다."),
-                      //       duration: Duration(seconds: 2), // 스낵바가 표시되는 시간
-                      //     )
-                      // );
-                    },
-                    child: Image.asset("images/수민옥수수-removebg.png", width:
-                    MediaQuery.of(context).size.width / 6, height: 120),
-                  ),
-                  InkWell( // InkWell은 자식 위젯에 터치 이벤트 등이 발생하였을 때 어떻게 처리할 지(위젯 변화, 페이지 전환 등)를 설정하는 위젯
-                    onTap: () {
-                      print("수연옥수수를 클릭했습니다.");
-                      Navigator.of(context).push(
-                        MaterialPageRoute(builder: (_) => MemberPage(name: "수연"))
-                      );
-                      // ScaffoldMessenger.of(context).showSnackBar(
-                      //     SnackBar(
-                      //       content: Text("수연옥수수를 클릭했습니다."),
-                      //       duration: Duration(seconds: 2), // 스낵바가 표시되는 시간
-                      //     )
-                      // );
-                    },
-                    child: Image.asset("images/수연옥수수-removebg.png", width: MediaQuery.of(context).size.width / 6, height: 120),
-                  ),
-                  InkWell(
-                    onTap: () {
-                      print("언지옥수수를 클릭했습니다.");
-                      Navigator.of(context).push(
-                          MaterialPageRoute(builder: (_) => MemberPage(name: "언지"))
-                      );
-                      // ScaffoldMessenger.of(context).showSnackBar(
-                      //     SnackBar(
-                      //       content: Text("언지옥수수를 클릭했습니다."),
-                      //       duration: Duration(seconds: 2), // 스낵바가 표시되는 시간
-                      //     )
-                      // );
-                    },
-                    child: Image.asset("images/언지옥수수-removebg.png", width: MediaQuery.of(context).size.width / 6, height: 120),
-                  ),
-                  InkWell(
-                    onTap: () {
-                      print("은수옥수수를 클릭했습니다.");
-                      Navigator.of(context).push(
-                          MaterialPageRoute(builder: (_) => MemberPage(name: "은수"))
-                      );
-                      // ScaffoldMessenger.of(context).showSnackBar(
-                      //     SnackBar(
-                      //       content: Text("은수옥수수를 클릭했습니다."),
-                      //       duration: Duration(seconds: 2), // 스낵바가 표시되는 시간
-                      //     )
-                      // );
-                    },
-                    child: Image.asset("images/은수옥수수-removebg.png", width: MediaQuery.of(context).size.width / 6, height: 120),
-                  ),
-                  InkWell(
-                    onTap: () {
-                      print("지훈옥수수를 클릭했습니다");
-                      Navigator.of(context).push(
-                          MaterialPageRoute(builder: (_) => MemberPage(name: "지훈"))
-                      );
-                      // ScaffoldMessenger.of(context).showSnackBar(
-                      //     SnackBar(
-                      //       content: Text("지훈옥수수를 클릭했습니다."),
-                      //       duration: Duration(seconds: 2), // 스낵바가 표시되는 시간
-                      //     )
-                      // );
-                    },
-                    child: Image.asset("images/지훈옥수수-removebg.png", width: MediaQuery.of(context).size.width / 6, height: 120),
-                  ),
-                  InkWell(
-                    onTap: () {
-                      print("현아옥수수를 클릭했습니다");
-                      Navigator.of(context).push(
-                          MaterialPageRoute(builder: (_) => MemberPage(name: "현아"))
-                      );
-                      // ScaffoldMessenger.of(context).showSnackBar(
-                      //     SnackBar(
-                      //       content: Text("현아옥수수를 클릭했습니다."),
-                      //       duration: Duration(seconds: 2), // 스낵바가 표시되는 시간
-                      //     )
-                      // );
-                    },
-                    child: Image.asset("images/현아옥수수-removebg.png", width: MediaQuery.of(context).size.width / 6, height: 120),
-                  ),
-                ],
-              ),
-              SizedBox(height: 15),
-              Column(
-                children: [
-                  //Image.asset("images/fire-removebg.png"),
-                  //Image.network('https://cdn.pixabay.com/animation/2024/02/25/18/29/18-29-54-480_512.gif'),
-                  Image.network('https://cdn.pixabay.com/animation/2024/05/07/23/55/23-55-47-279_512.gif'),
-                ],
-              ),
+                Column(
+                  children: [
+                    //Image.asset("images/fire-removebg.png"),
+                    //Image.network('https://cdn.pixabay.com/animation/2024/02/25/18/29/18-29-54-480_512.gif'),
+                    Image.network('https://cdn.pixabay.com/animation/2024/05/07/23/55/23-55-47-279_512.gif'),
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(top: cornsPadding["수민"]!),
+                      child:
+                      InkWell(
+                        onTap: () {
 
+                          print("수민옥수수를 클릭했습니다.");
+                          Navigator.of(context).push(
+                              MaterialPageRoute(builder: (_) => MemberPage(name: "수민"))
+                          );
+                        },
+                        onDoubleTap: () {
+                          setState(() {
+                            cornsPadding["수민"] = 100.0;
+                            _counter += 1;
+                          });
+                        },
+                        child: Image.asset("images/수민옥수수-removebg.png", width:
+                        MediaQuery.of(context).size.width / 6, height: 120),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(top: cornsPadding["수연"]!),
+                      child:InkWell( // InkWell은 자식 위젯에 터치 이벤트 등이 발생하였을 때 어떻게 처리할 지(위젯 변화, 페이지 전환 등)를 설정하는 위젯
+                        onTap: () {
+                          print("수연옥수수를 클릭했습니다.");
+                          Navigator.of(context).push(
+                            MaterialPageRoute(builder: (_) => MemberPage(name: "수연"))
+                          );
+                        },
+                        onDoubleTap: () {
+                          setState(() {
+                            cornsPadding["수연"] = 100.0;
+                            _counter += 1;
+                          });
+                        },
+                        child: Image.asset("images/수연옥수수-removebg.png", width: MediaQuery.of(context).size.width / 6, height: 120),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(top: cornsPadding["언지"]!),
+                      child:InkWell(
+                      onTap: () {
+                        print("언지옥수수를 클릭했습니다.");
+                        Navigator.of(context).push(
+                            MaterialPageRoute(builder: (_) => MemberPage(name: "언지"))
+                        );
+                      },
+                      onDoubleTap: () {
+                        setState(() {
+                          cornsPadding["언지"] = 100.0;
+                          _counter += 1;
+                        });
+                      },
+                      child: Image.asset("images/언지옥수수-removebg.png", width: MediaQuery.of(context).size.width / 6, height: 120),
+                    ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(top: cornsPadding["은수"]!),
+                      child:InkWell(
+                      onTap: () {
+                        print("은수옥수수를 클릭했습니다.");
+                        Navigator.of(context).push(
+                            MaterialPageRoute(builder: (_) => MemberPage(name: "은수"))
+                        );
+                      },
+                        onDoubleTap: () {
+                          setState(() {
+                            cornsPadding["은수"] = 100.0;
+                            _counter += 1;
+                          });
+                        },
+                      child: Image.asset("images/은수옥수수-removebg.png", width: MediaQuery.of(context).size.width / 6, height: 120),
+                    ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(top: cornsPadding["지훈"]!),
+                      child:InkWell(
+                      onTap: () {
+                        print("지훈옥수수를 클릭했습니다");
+                        Navigator.of(context).push(
+                            MaterialPageRoute(builder: (_) => MemberPage(name: "지훈"))
+                        );
+                        // ScaffoldMessenger.of(context).showSnackBar(
+                        //     SnackBar(
+                        //       content: Text("지훈옥수수를 클릭했습니다."),
+                        //       duration: Duration(seconds: 2), // 스낵바가 표시되는 시간
+                        //     )
+                        // );
+                      },
+                        onDoubleTap: () {
+                          setState(() {
+                            cornsPadding["지훈"] = 100.0;
+                            _counter += 1;
+                          });
+                        },
+                      child: Image.asset("images/지훈옥수수-removebg.png", width: MediaQuery.of(context).size.width / 6, height: 120),
+                    ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(top: cornsPadding["현아"]!),
+                      child:InkWell(
+                      onTap: () {
+                        print("현아옥수수를 클릭했습니다");
+                        Navigator.of(context).push(
+                            MaterialPageRoute(builder: (_) => MemberPage(name: "현아"))
+                        );
+                        // ScaffoldMessenger.of(context).showSnackBar(
+                        //     SnackBar(
+                        //       content: Text("현아옥수수를 클릭했습니다."),
+                        //       duration: Duration(seconds: 2), // 스낵바가 표시되는 시간
+                        //     )
+                        // );
+                      },
+                        onDoubleTap: () {
+                          setState(() {
+                            cornsPadding["현아"] = 100.0;
+                            _counter += 1;
+                          });
+                        },
+                      child: Image.asset("images/현아옥수수-removebg.png", width: MediaQuery.of(context).size.width / 6, height: 120),
+                    ),
+                    ),
+                  ],
+                ),
+                // SizedBox(height: 15),
+
+                ]
+              ),
               Column(
                 children: [
                   // count가 6 미만일 때 표시되는 부분
@@ -560,40 +606,162 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
 
-              Padding(
-                padding: const EdgeInsets.fromLTRB(16.0, 50.0, 16.0, 0),
-                child: Row(
-                  children: [
-                    const Text(
-                      '방문자 수 : ',
-                      style: TextStyle(
-                        color: Colors.black45,
-                        fontSize: 20,
-                        fontFamily: "PaperlogySemiBold",
-                      ),
-                    ),
-                    Text(
-                      '$_counter',
-                      style: const TextStyle(
-                        color: Colors.black45,
-                        fontSize: 20,
-                        fontFamily: "PaperlogySemiBold",
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              // Padding(
+              //   padding: const EdgeInsets.fromLTRB(16.0, 50.0, 16.0, 0),
+              //   child: Row(
+              //     children: [
+              //       const Text(
+              //         '방문자 수 : ',
+              //         style: TextStyle(
+              //           color: Colors.black45,
+              //           fontSize: 20,
+              //           fontFamily: "PaperlogySemiBold",
+              //         ),
+              //       ),
+              //       Text(
+              //         '$_counter',
+              //         style: const TextStyle(
+              //           color: Colors.black45,
+              //           fontSize: 20,
+              //           fontFamily: "PaperlogySemiBold",
+              //         ),
+              //       ),
+              //     ],
+              //   ),
+              // ),
             ],
           ),
         ),
       ),
 
-
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
+      //
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: _incrementCounter,
+      //   tooltip: 'Increment',
+      //   child: const Icon(Icons.add),
+      // ),
     );
   }
 }
