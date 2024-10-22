@@ -69,6 +69,21 @@ flutter:
      - images/fire-removebg.png
      - images/popcorn-removebg.png
      - images/popcorn.png
+     - images/lg.png
+     - images/bed.png
+     - images/coffee.png
+     - images/noodle.png
+     - images/pizza.png
+     - images/poket.png
+     - images/sushi.png
+     - images/ramen.png
+     - images/music.png
+     - images/icecream.png
+     - images/chicken.png
+     - images/jjangu.png
+     - images/baseball.png
+     - images/poodle.png
+     - images/shrimp.png
 
   #   - images/a_dot_ham.jpeg
 
