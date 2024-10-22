@@ -34,9 +34,9 @@ class _MemberPageState extends State<MemberPage> {
 
   var specialMemberImages = {
     "수민": [
-      "images/lg.png", // 첫 번째 이미지
-      "images/music.png", // 두 번째 이미지
-      "images/ramen.png", // 세 번째 이미지
+      "images/game.png", // 첫 번째 이미지
+      "images/gf.png", // 두 번째 이미지
+      "images/travel.png", // 세 번째 이미지
     ],
     "수연": [
       "images/sushi.png", // 수연의 첫 번째 특별 이미지

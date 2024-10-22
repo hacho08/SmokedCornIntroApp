@@ -84,6 +84,9 @@ flutter:
      - images/poodle.png
      - images/shrimp.png
      - images/popcorn.png
+     - images/game.png
+     - images/gf.png
+     - images/travel.png
 
   #   - images/a_dot_ham.jpeg
 
