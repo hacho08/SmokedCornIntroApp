@@ -125,16 +125,13 @@ class _MemberPageState extends State<MemberPage> {
                         },
                         child: Image.asset(
                           "${memberImg[widget.name]}",
-                          width: growthLevel == 1
-                              ? MediaQuery.of(context).size.width * 0.1
-                              : growthLevel == 2
-                              ? MediaQuery.of(context).size.width * 0.2
-                              : MediaQuery.of(context).size.width * 0.3,
+                          width: growthLevel == 1 ? MediaQuery.of(context).size.width * 0.1
+                              : growthLevel == 2 ? MediaQuery.of(context).size.width * 0.2 :  growthLevel == 3? MediaQuery.of(context).size.width * 0.3: MediaQuery.of(context).size.width * 0.4,
                           height: growthLevel == 1
                               ? MediaQuery.of(context).size.height * 0.1
                               : growthLevel == 2
                               ? MediaQuery.of(context).size.height * 0.2
-                              : MediaQuery.of(context).size.height * 0.3,
+                              : growthLevel == 3? MediaQuery.of(context).size.height * 0.3: MediaQuery.of(context).size.height * 0.4,
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -155,21 +152,23 @@ class _MemberPageState extends State<MemberPage> {
                         onPressed: () {
                           setState(() {
                             // 버튼 클릭 시 상태 업데이트
-                            if (growthLevel < 3) {
+                            if (growthLevel < 4) {
                               growthLevel++;
-                              if (growthLevel == 3) {
+                              if (growthLevel == 4) {
                                 _showImages = true; // 성장이 3일 때 이미지 표시
                               }
                             }
                           });
                         },
                         child: Text(
-                          growthLevel == 3
+                          growthLevel == 4
                               ? "${widget.name}옥수수를 수확할 때가 되었어요!"
                               : "${widget.name}옥수수를 키워주세요!",
                           style: TextStyle(fontSize: 20, color: Colors.yellow),
                         ),
+
                       ),
+                      SizedBox(height: 50),
                     ],
                   ),
                 ),

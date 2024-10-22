@@ -516,7 +516,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                     ),
                     Text(
-                      '----- 팝콘이 튀겨지고 있습니다 -----',
+                      '팝콘이 튀겨지고 있습니다',
                       style: TextStyle(
                         color: Colors.black54,
                         fontSize: 25,
@@ -598,9 +598,11 @@ class _MyHomePageState extends State<MyHomePage> {
                             ),
                           ),
                         ),
+
                       ],
                     ),
                   ],
+                  SizedBox(height: 50),
                 ],
               ),
 
