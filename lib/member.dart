@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '_AnimatedCornPageState.dart';
 
 class MemberPage extends StatelessWidget {
   MemberPage({super.key, required this.name});
@@ -49,7 +50,21 @@ class MemberPage extends StatelessWidget {
         ),
         child: Column(
           children: [
-            Image.asset("${memberImg[name]}"),
+            GestureDetector(
+            onTap: () {
+            Navigator.of(context).push(
+            MaterialPageRoute(
+            builder: (context) => AnimatedCornPage(), // 애니메이션 페이지로 이동
+            ),
+            );
+            },
+            child: Image.asset(
+              "${memberImg[name]}",
+              width: 200, // 이미지 크기 설정 (적절히 조절)
+              height: 200,
+            ),
+            ),
+            SizedBox(height: 20),
             Text(
               "${memberDesc[name]}",
               style: TextStyle(
